@@ -1,0 +1,23 @@
+.postTagsLinks a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item {
+  padding-right: 20px;
+}
+
+.tagsContainer .form-check {
+  list-style: none;
+  padding: 0;
+  margin-left: 10px;
+  display: inline-block;
+}
+.tagsContainer .form-check li > label {
+  display: flex;
+}
+.tagsContainer .form-check li > label input {
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=base.css.map */

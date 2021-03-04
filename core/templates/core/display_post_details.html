@@ -1,0 +1,13 @@
+{% extends 'core/core_base.html' %}
+
+{% block main_content %}
+  <div class="postContainer bg-dark" style="display: grid; width: 70%; margin: 25px auto">
+    <h1 class="card-title text-white" style="margin: auto; padding: 25px">{{ post.title }}</h1>
+    <div class="card text-white bg-dark ml-5 mt-3">
+      <div class="card-body">
+        <p class="card-text">{{ post.text }}</p>
+      </div>
+      <div class="card-footer text-muted"> {{ post.creation_date }} </div>
+    </div>
+  </div>
+{% endblock %}

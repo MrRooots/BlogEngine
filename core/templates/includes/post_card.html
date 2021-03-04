@@ -1,0 +1,18 @@
+<div class="card text-white bg-secondary ml-5 mb-5">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.text | truncatewords:15 }}</p>
+    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read more</a>
+  </div>
+  <div class="card-footer text-info"> {{ post.creation_date }} </div>
+  {% if post.get_tags_count %}
+    <div class="card-footer">
+      <div class="postTagsLinks">
+        Tags:
+        {% for tag in post.tags.all %}
+          <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>

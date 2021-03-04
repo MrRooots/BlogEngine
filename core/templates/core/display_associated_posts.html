@@ -1,0 +1,12 @@
+{% extends 'core/core_base.html' %}
+
+{% block main_content %}
+  {% include 'includes/breadcrump.html' with links=path %}
+  <div class="postsContainer" style="width: 50%; margin: auto; padding-top: 50px">
+    <h1 class="h1 mt-5 mb-5">Posts with {{ tag_title }} tag:</h1>
+    {% for associated_post in associated_posts %}
+      {% include 'includes/post_card.html' with post=associated_post %}
+    {% endfor %}
+
+  </div>
+{% endblock %}

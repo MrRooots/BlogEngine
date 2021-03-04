@@ -1,0 +1,27 @@
+.postTagsLinks {
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.nav-item {
+  padding-right: 20px;
+}
+
+.tagsContainer {
+  .form-check {
+    list-style: none;
+    padding: 0;
+    margin-left: 10px;
+    display: inline-block;
+
+    li > label {
+      display: flex;
+
+      input {
+        margin-right: 10px;
+      }
+    }
+  }
+}

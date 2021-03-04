@@ -1,0 +1,46 @@
+{% extends 'core/core_base.html' %}
+{% load static %}
+
+{% block main_content %}
+  {% include 'includes/breadcrump.html' with links=path %}
+  <div class="formContainer" style="width: 50%; margin: auto; padding-top: 50px">
+    <form class="" action="{% url 'create_post' %}" method="post">
+      <h1 class="h1 mb-5" style="text-align: center">Post Creation Form</h1>
+      {% csrf_token %}
+      {% for field in form %}
+        {% if field.errors %}
+          <div class="alert alert-danger" role="alert"> {{ field.errors }} </div>
+        {% endif %}
+        {% if field.label != 'Tags' %}
+          <p style="margin: 0">{{ field.label }}:</p> {{ field }}
+        {% else %}
+          <p style="margin: 0">{{ field.label }}:</p>
+          <div class="tagsContainer" style="">
+            {{ field }}
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="buttonContainer mt-3">
+        <button type="submit" class="btn btn-success">Create Post</button>
+        <button type="reset" class="btn btn-danger" onclick="clearTags()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="{% static 'scripts/script.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+{#<p id="tagsList" style="margin: 0">{{ field.label }}:</p>#}
+{#<select class="form-select mt-1"#}
+{#        id="selectBox"#}
+{#        aria-label="multiple select example"#}
+{#        onchange="toggleTag(this.value)">#}
+{#  <option selected>Select tags...</option>#}
+{#  {% for index, tag in tags %}#}
+{#    <option value="{{ index }}">{{ tag.title }}</option>#}
+{#  {% endfor %}#}
+{#</select>#}

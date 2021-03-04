@@ -1,0 +1,17 @@
+{% extends 'core/core_base.html' %}
+
+{% block title %} All Posts {% endblock %}
+
+{% block breadcrumb %}
+
+{% endblock %}
+
+{% block main_content %}
+  {% include 'includes/breadcrump.html' with links=path %}
+  <div class="postsContainer" style="width: 50%; margin: auto; padding-top: 50px">
+  <h1 class="h1" style="padding-bottom: 25px">All Posts:</h1>
+    {% for post in posts %}
+      {% include 'includes/post_card.html' with post=post %}
+    {% endfor %}
+  </div>
+{% endblock %}

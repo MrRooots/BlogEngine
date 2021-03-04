@@ -1,0 +1,11 @@
+{% extends 'core/core_base.html' %}
+
+{% block main_content %}
+    {% include 'includes/breadcrump.html' with links=path %}
+  <div class="tagsContainer mt-5 mb-5" style="width: 50%; margin: auto; padding-top: 50px">
+    <h1 class="h1" style="padding-bottom: 25px">Tags:</h1>
+    {% for tag in tags %}
+      <h3 class="h3"><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></h3>
+    {% endfor %}
+  </div>
+{% endblock %}

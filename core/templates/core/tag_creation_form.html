@@ -1,0 +1,25 @@
+{% extends 'core/core_base.html' %}
+
+{% block main_content %}
+  {% include 'includes/breadcrump.html' with links=path %}
+  <div class="formContainer" style="width: 50%; margin: auto; padding-top: 50px">
+    <h1 class="h1 mb-5" style="text-align: center">Tag Creation Form</h1>
+    <form action="{% url 'create_tag' %}" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            {% if existing_tag %}
+              <div class="alert alert-danger" role="alert">{{ error }} {{ existing_tag }}</div>
+            {% else %}
+              <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {{ field.label }}: {{ field }}
+      {% endfor %}
+      <button type="submit" class="btn btn-success">Create Tag</button>
+      <button type="reset" class="btn btn-danger">Cancel</button>
+    </form>
+  </div>
+{% endblock %}
